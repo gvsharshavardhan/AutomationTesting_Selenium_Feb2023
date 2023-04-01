@@ -1,0 +1,27 @@
+
+
+Shortcut to open devtools in browser:
+ctrl + shift + i
+
+Practise Website:
+-----------------
+https://leafground.com/dashboard.xhtml
+
+
+
+Frames Assignmet:
+-----------------
+https://the-internet.herokuapp.com/nested_frames
+
+bottom
+middle
+right
+left
+
+
+
+1. click open tab button
+2. go to newly opened tab
+3. get all the headers and print onto the screen
+4. switch back to window tab
+5. get the title

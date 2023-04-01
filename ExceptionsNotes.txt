@@ -1,0 +1,5 @@
+1. org.openqa.selenium.ElementNotInteractableException: element not interactable
+
+    -  when user is trying to interact with the element that is not enabled.(not interactable)
+
+2.
