@@ -25,3 +25,56 @@ left
 3. get all the headers and print onto the screen
 4. switch back to window tab
 5. get the title
+
+
+Waits:
+----------
+ChromeDriver cd = new ChromeDriver();
+
+cd.manage().timeouts().implicitwait(5);
+
+step1
+
+1. sleep(3)
+2. waits
+        1. implicit          -> Global wait, Driver level wait
+        2. explicit          -> local wait, element level wait, waiting condition
+            - fluent wait    -> polling , 10millisec, .5 sec, 5 , 10times
+
+step2
+
+
+create drover
+implicit  ->  8
+
+
+bttn 1 -> 5 sec
+click
+act 1
+
+act 2
+
+bttn 2 -> 8 sec
+click
+
+
+critical button , important step, business, should not take more than 4 sec, 10m
+bttn 3 -> 4 sec -> 5 sec
+
+
+explicit wait
+
+500millisec
+exwaitForBtn1(5, waituntilleleis visible, clickanle 7), wait intil alert is present , wait until text is diapleuy
+btn 1
+
+click
+
+exwaitForBtn2(8)
+btn2
+
+
+exwitforbtn3(4)
+btn3
+
+

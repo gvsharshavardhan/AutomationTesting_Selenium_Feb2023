@@ -4,6 +4,7 @@ import common.DriverManager;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class FidoXpath extends DriverManager {
@@ -14,7 +15,8 @@ public class FidoXpath extends DriverManager {
 
         createDriver("chrome");
         driver.get("https://www.fido.ca/phones/");
-        wait(3);
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         ArrayList<String> phones = new ArrayList<>();
         phones.add("Samsung Galaxy S21 Ultra 5G");
@@ -25,9 +27,11 @@ public class FidoXpath extends DriverManager {
 
 
         for (String phone : phones) {
-            String price = driver.findElement(By.xpath(fullPriceXpath.replace("$$", phone))).getText();
-            System.out.println("Phone: " + phone);
-            System.out.println("fullPrice: " + price);
+            if(isElementPresent(By.xpath(fullPriceXpath.replace("$$", phone)))) {
+                String price = driver.findElement(By.xpath(fullPriceXpath.replace("$$", phone))).getText();
+                System.out.println("Phone: " + phone);
+                System.out.println("fullPrice: " + price);
+            }
         }
 
         quiteBrowser();

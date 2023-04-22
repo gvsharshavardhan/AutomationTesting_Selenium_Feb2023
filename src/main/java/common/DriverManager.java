@@ -11,15 +11,17 @@ public class DriverManager {
 
     public WebDriver driver;
 
-    public void createDriver(String browser){
+    public void createDriver(String browser) {
 
-        if(browser.equals("firefox")){
+        if (browser.equals("firefox")) {
             driver = new FirefoxDriver();
-        }else if(browser.equals("edge")){
+        } else if (browser.equals("edge")) {
             driver = new EdgeDriver();
-        }else{
+        } else {
             driver = new ChromeDriver();
         }
+
+        driver.manage().window().maximize();
     }
 
     public void loginIntoOrangeHRM() {
@@ -44,33 +46,46 @@ public class DriverManager {
     }
 
 
-    public void wait(int seconds){
+    public void wait(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
-        }catch (InterruptedException interruptedException){
+        } catch (InterruptedException interruptedException) {
             System.out.println(interruptedException);
         }
     }
 
-    public void navigateToThePage(String url){
+    public void mySleep(int millis){
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException interruptedException) {
+            System.out.println(interruptedException);
+        }
+    }
+
+
+    public void navigateToThePage(String url) {
         driver.get(url);
     }
 
-    public void enterText(By by, String text){
+    public void enterText(By by, String text) {
         driver.findElement(by).sendKeys(text);
     }
 
-    public void click(By by){
+    public void click(By by) {
         driver.findElement(by).click();
     }
 
-    public String getText(By by){
-       return driver.findElement(by).getText();
+    public String getText(By by) {
+        return driver.findElement(by).getText();
     }
 
-    public void quiteBrowser(){
+    public void quiteBrowser() {
         driver.quit();
     }
 
+
+    public boolean isElementPresent(By by) {
+        return driver.findElements(by).size() > 0;
+    }
 
 }
